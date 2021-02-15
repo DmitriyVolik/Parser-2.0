@@ -1,0 +1,25 @@
+E:\ДЗ Шаг\С#\WPF\Parser 2.0\Parser 2.0\bin\Debug\netcoreapp3.1\Parser 2.0.exe
+E:\ДЗ Шаг\С#\WPF\Parser 2.0\Parser 2.0\obj\Debug\netcoreapp3.1\Parser 2.0.csprojAssemblyReference.cache
+E:\ДЗ Шаг\С#\WPF\Parser 2.0\Parser 2.0\obj\Debug\netcoreapp3.1\Parser 2.0.AssemblyInfoInputs.cache
+E:\ДЗ Шаг\С#\WPF\Parser 2.0\Parser 2.0\obj\Debug\netcoreapp3.1\Parser 2.0.AssemblyInfo.cs
+E:\ДЗ Шаг\С#\WPF\Parser 2.0\Parser 2.0\bin\Debug\netcoreapp3.1\Parser 2.0.deps.json
+E:\ДЗ Шаг\С#\WPF\Parser 2.0\Parser 2.0\bin\Debug\netcoreapp3.1\Parser 2.0.runtimeconfig.json
+E:\ДЗ Шаг\С#\WPF\Parser 2.0\Parser 2.0\bin\Debug\netcoreapp3.1\Parser 2.0.runtimeconfig.dev.json
+E:\ДЗ Шаг\С#\WPF\Parser 2.0\Parser 2.0\bin\Debug\netcoreapp3.1\Parser 2.0.dll
+E:\ДЗ Шаг\С#\WPF\Parser 2.0\Parser 2.0\bin\Debug\netcoreapp3.1\Parser 2.0.pdb
+E:\ДЗ Шаг\С#\WPF\Parser 2.0\Parser 2.0\bin\Debug\netcoreapp3.1\Fizzler.dll
+E:\ДЗ Шаг\С#\WPF\Parser 2.0\Parser 2.0\bin\Debug\netcoreapp3.1\Fizzler.Systems.HtmlAgilityPack.dll
+E:\ДЗ Шаг\С#\WPF\Parser 2.0\Parser 2.0\bin\Debug\netcoreapp3.1\HtmlAgilityPack.dll
+E:\ДЗ Шаг\С#\WPF\Parser 2.0\Parser 2.0\bin\Debug\netcoreapp3.1\System.Xml.XPath.XmlDocument.dll
+E:\ДЗ Шаг\С#\WPF\Parser 2.0\Parser 2.0\obj\Debug\netcoreapp3.1\Parser 2.0.csproj.CopyComplete
+E:\ДЗ Шаг\С#\WPF\Parser 2.0\Parser 2.0\obj\Debug\netcoreapp3.1\Parser 2.0.dll
+E:\ДЗ Шаг\С#\WPF\Parser 2.0\Parser 2.0\obj\Debug\netcoreapp3.1\Parser 2.0.pdb
+E:\ДЗ Шаг\С#\WPF\Parser 2.0\Parser 2.0\obj\Debug\netcoreapp3.1\Parser 2.0.genruntimeconfig.cache
+E:\ДЗ Шаг\С#\WPF\Parser 2.0\Parser 2.0\bin\Debug\netcoreapp3.1\System.Text.Json.dll
+E:\ДЗ Шаг\С#\WPF\Parser 2.0\Parser 2.0\obj\Debug\netcoreapp3.1\Parser 2.0.csproj.CoreCompileInputs.cache
+E:\ДЗ Шаг\С#\WPF\Parser 2.0\Parser 2.0\bin\Debug\netcoreapp3.1\System.Data.SqlClient.dll
+E:\ДЗ Шаг\С#\WPF\Parser 2.0\Parser 2.0\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\sni.dll
+E:\ДЗ Шаг\С#\WPF\Parser 2.0\Parser 2.0\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\sni.dll
+E:\ДЗ Шаг\С#\WPF\Parser 2.0\Parser 2.0\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\sni.dll
+E:\ДЗ Шаг\С#\WPF\Parser 2.0\Parser 2.0\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+E:\ДЗ Шаг\С#\WPF\Parser 2.0\Parser 2.0\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll

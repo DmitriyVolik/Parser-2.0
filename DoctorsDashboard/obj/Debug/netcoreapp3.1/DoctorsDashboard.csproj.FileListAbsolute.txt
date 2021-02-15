@@ -1,0 +1,34 @@
+E:\ДЗ Шаг\С#\WPF\Parser 2.0\DoctorsDashboard\bin\Debug\netcoreapp3.1\Parser 2.0.exe
+E:\ДЗ Шаг\С#\WPF\Parser 2.0\DoctorsDashboard\bin\Debug\netcoreapp3.1\DoctorsDashboard.exe
+E:\ДЗ Шаг\С#\WPF\Parser 2.0\DoctorsDashboard\bin\Debug\netcoreapp3.1\DoctorsDashboard.deps.json
+E:\ДЗ Шаг\С#\WPF\Parser 2.0\DoctorsDashboard\bin\Debug\netcoreapp3.1\DoctorsDashboard.runtimeconfig.json
+E:\ДЗ Шаг\С#\WPF\Parser 2.0\DoctorsDashboard\bin\Debug\netcoreapp3.1\DoctorsDashboard.runtimeconfig.dev.json
+E:\ДЗ Шаг\С#\WPF\Parser 2.0\DoctorsDashboard\bin\Debug\netcoreapp3.1\DoctorsDashboard.dll
+E:\ДЗ Шаг\С#\WPF\Parser 2.0\DoctorsDashboard\bin\Debug\netcoreapp3.1\DoctorsDashboard.pdb
+E:\ДЗ Шаг\С#\WPF\Parser 2.0\DoctorsDashboard\bin\Debug\netcoreapp3.1\Fizzler.dll
+E:\ДЗ Шаг\С#\WPF\Parser 2.0\DoctorsDashboard\bin\Debug\netcoreapp3.1\Fizzler.Systems.HtmlAgilityPack.dll
+E:\ДЗ Шаг\С#\WPF\Parser 2.0\DoctorsDashboard\bin\Debug\netcoreapp3.1\HtmlAgilityPack.dll
+E:\ДЗ Шаг\С#\WPF\Parser 2.0\DoctorsDashboard\bin\Debug\netcoreapp3.1\System.Data.SqlClient.dll
+E:\ДЗ Шаг\С#\WPF\Parser 2.0\DoctorsDashboard\bin\Debug\netcoreapp3.1\System.Text.Json.dll
+E:\ДЗ Шаг\С#\WPF\Parser 2.0\DoctorsDashboard\bin\Debug\netcoreapp3.1\System.Xml.XPath.XmlDocument.dll
+E:\ДЗ Шаг\С#\WPF\Parser 2.0\DoctorsDashboard\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\sni.dll
+E:\ДЗ Шаг\С#\WPF\Parser 2.0\DoctorsDashboard\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\sni.dll
+E:\ДЗ Шаг\С#\WPF\Parser 2.0\DoctorsDashboard\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\sni.dll
+E:\ДЗ Шаг\С#\WPF\Parser 2.0\DoctorsDashboard\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+E:\ДЗ Шаг\С#\WPF\Parser 2.0\DoctorsDashboard\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+E:\ДЗ Шаг\С#\WPF\Parser 2.0\DoctorsDashboard\bin\Debug\netcoreapp3.1\Parser 2.0.dll
+E:\ДЗ Шаг\С#\WPF\Parser 2.0\DoctorsDashboard\bin\Debug\netcoreapp3.1\Parser 2.0.pdb
+E:\ДЗ Шаг\С#\WPF\Parser 2.0\DoctorsDashboard\obj\Debug\netcoreapp3.1\DoctorsDashboard.csprojAssemblyReference.cache
+E:\ДЗ Шаг\С#\WPF\Parser 2.0\DoctorsDashboard\obj\Debug\netcoreapp3.1\MainWindow.g.cs
+E:\ДЗ Шаг\С#\WPF\Parser 2.0\DoctorsDashboard\obj\Debug\netcoreapp3.1\App.g.cs
+E:\ДЗ Шаг\С#\WPF\Parser 2.0\DoctorsDashboard\obj\Debug\netcoreapp3.1\DoctorsDashboard_MarkupCompile.cache
+E:\ДЗ Шаг\С#\WPF\Parser 2.0\DoctorsDashboard\obj\Debug\netcoreapp3.1\DoctorsDashboard_MarkupCompile.lref
+E:\ДЗ Шаг\С#\WPF\Parser 2.0\DoctorsDashboard\obj\Debug\netcoreapp3.1\MainWindow.baml
+E:\ДЗ Шаг\С#\WPF\Parser 2.0\DoctorsDashboard\obj\Debug\netcoreapp3.1\DoctorsDashboard.g.resources
+E:\ДЗ Шаг\С#\WPF\Parser 2.0\DoctorsDashboard\obj\Debug\netcoreapp3.1\DoctorsDashboard.AssemblyInfoInputs.cache
+E:\ДЗ Шаг\С#\WPF\Parser 2.0\DoctorsDashboard\obj\Debug\netcoreapp3.1\DoctorsDashboard.AssemblyInfo.cs
+E:\ДЗ Шаг\С#\WPF\Parser 2.0\DoctorsDashboard\obj\Debug\netcoreapp3.1\DoctorsDashboard.csproj.CoreCompileInputs.cache
+E:\ДЗ Шаг\С#\WPF\Parser 2.0\DoctorsDashboard\obj\Debug\netcoreapp3.1\DoctorsDashboard.csproj.CopyComplete
+E:\ДЗ Шаг\С#\WPF\Parser 2.0\DoctorsDashboard\obj\Debug\netcoreapp3.1\DoctorsDashboard.dll
+E:\ДЗ Шаг\С#\WPF\Parser 2.0\DoctorsDashboard\obj\Debug\netcoreapp3.1\DoctorsDashboard.pdb
+E:\ДЗ Шаг\С#\WPF\Parser 2.0\DoctorsDashboard\obj\Debug\netcoreapp3.1\DoctorsDashboard.genruntimeconfig.cache
