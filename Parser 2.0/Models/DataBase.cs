@@ -48,7 +48,7 @@ namespace Doctors.Models
         {
             List<Doctor> result = new List<Doctor>();
 
-            string sqlExpression = "select Id, Name, PostalCode, City, Address, Phone, Description, Url from Doctors";
+            string sqlExpression = "select Id, Name, PostalCode, City, Address, Phone, Description, Url, ImageUrl, LocalImageFile from Doctors";
 
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
@@ -62,25 +62,7 @@ namespace Doctors.Models
 
                     while (reader.Read()) // построчно считываем данные
                     {
-                        Doctor temp = new Doctor();
-
-                        temp.Id = Convert.ToInt32(reader.GetValue(0));
-
-                        temp.Name = reader.GetValue(1).ToString();
-
-                        temp.PostalCode = reader.GetValue(2).ToString();
-
-                        temp.City = reader.GetValue(3).ToString();
-
-                        temp.Address = reader.GetValue(4).ToString();
-
-                        temp.Phone = reader.GetValue(5).ToString();
-
-                        temp.Description = reader.GetValue(6).ToString();
-
-                        temp.Url = reader.GetValue(7).ToString();
-
-                        result.Add(temp);
+                        result.Add(FromReader(reader));
                     }
                 }
 
@@ -94,7 +76,7 @@ namespace Doctors.Models
         {
             List<Doctor> result = new List<Doctor>();
 
-            string sqlExpression = "select Id, Name, PostalCode, City, Address, Phone, Description, Url from Doctors join DoctorServices DS on Doctors.Id = DS.DoctorId where ServiceId = @ServiceId";
+            string sqlExpression = "select Id, Name, PostalCode, City, Address, Phone, Description, Url, ImageUrl, LocalImageFile from Doctors join DoctorServices DS on Doctors.Id = DS.DoctorId where ServiceId = @ServiceId";
 
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
@@ -110,25 +92,7 @@ namespace Doctors.Models
 
                     while (reader.Read()) // построчно считываем данные
                     {
-                        Doctor temp = new Doctor();
-
-                        temp.Id = Convert.ToInt32(reader.GetValue(0));
-
-                        temp.Name = reader.GetValue(1).ToString();
-
-                        temp.PostalCode = reader.GetValue(2).ToString();
-
-                        temp.City = reader.GetValue(3).ToString();
-
-                        temp.Address = reader.GetValue(4).ToString();
-
-                        temp.Phone = reader.GetValue(5).ToString();
-
-                        temp.Description = reader.GetValue(6).ToString();
-
-                        temp.Url = reader.GetValue(7).ToString();
-
-                        result.Add(temp);
+                        result.Add(FromReader(reader));
                     }
                 }
 
@@ -138,24 +102,19 @@ namespace Doctors.Models
             return result;
         }
 
-
-        public List<Doctor> getNotCollectedDoctors(int count = 10)
+        public List<Doctor> GetAllDoctorsWithoutImage()
         {
             List<Doctor> result = new List<Doctor>();
 
             string sqlExpression;
 
-            sqlExpression = "select TOP (@Count) Id, Name, PostalCode, City, Address, Phone, Description, Url from Doctors where Collected = 0";
-
-
+            sqlExpression = "select Id, Name, PostalCode, City, Address, Phone, Description, Url, ImageUrl, LocalImageFile from Doctors WHERE ImageUrl IS NULL";
 
 
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
                 connection.Open();
                 SqlCommand command = new SqlCommand(sqlExpression, connection);
-
-                command.Parameters.Add(new SqlParameter("@Count", count));
 
                 SqlDataReader reader = command.ExecuteReader();
 
@@ -164,31 +123,100 @@ namespace Doctors.Models
 
                     while (reader.Read()) // построчно считываем данные
                     {
-                        Doctor temp = new Doctor();
-
-                        temp.Id = Convert.ToInt32(reader.GetValue(0));
-
-                        temp.Name = reader.GetValue(1).ToString();
-
-                        temp.PostalCode = reader.GetValue(2).ToString();
-
-                        temp.City = reader.GetValue(3).ToString();
-
-                        temp.Address = reader.GetValue(4).ToString();
-
-                        temp.Phone = reader.GetValue(5).ToString();
-
-                        temp.Description = reader.GetValue(6).ToString();
-
-                        temp.Url = reader.GetValue(7).ToString();
-
-                        result.Add(temp);
+                        result.Add(FromReader(reader));
                     }
                 }
 
                 reader.Close();
             }
 
+            return result;
+        }
+
+        private Doctor FromReader(SqlDataReader reader)
+        {
+            Doctor temp = new Doctor();
+
+            temp.Id = Convert.ToInt32(reader.GetValue(0));
+
+            temp.Name = reader.GetValue(1).ToString();
+
+            temp.PostalCode = reader.GetValue(2).ToString();
+
+            temp.City = reader.GetValue(3).ToString();
+
+            temp.Address = reader.GetValue(4).ToString();
+
+            temp.Phone = reader.GetValue(5).ToString();
+
+            temp.Description = reader.GetValue(6).ToString();
+
+            temp.Url = reader.GetValue(7).ToString();
+
+            temp.ImageUrl = reader.GetValue(8).ToString();
+            if (temp.ImageUrl.Length == 0)
+            {
+                temp.ImageUrl = null;
+            }
+
+            temp.LocalImageFile = reader.GetValue(9).ToString();
+            if (temp.LocalImageFile.Length == 0)
+            {
+                temp.LocalImageFile = null;
+            }
+
+            return temp;
+        }
+
+        public List<Doctor> GetAllDoctorsWithoutLocalImage()
+        {
+            List<Doctor> result = new List<Doctor>();
+
+            string sqlExpression;
+
+            sqlExpression = "select Id, Name, PostalCode, City, Address, Phone, Description, Url, ImageUrl, LocalImageFile from Doctors WHERE LocalImageFile IS NULL AND ImageUrl IS NOT NULL";
+
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                connection.Open();
+                SqlCommand command = new SqlCommand(sqlExpression, connection);
+                SqlDataReader reader = command.ExecuteReader();
+                if (reader.HasRows) // если есть данные
+                {
+                    while (reader.Read()) // построчно считываем данные
+                    {
+                        result.Add(FromReader(reader));
+                    }
+                }
+                reader.Close();
+            }
+
+            return result;
+        }
+
+        public List<Doctor> getNotCollectedDoctors(int count = 10)
+        {
+            List<Doctor> result = new List<Doctor>();
+
+            string sqlExpression;
+
+            sqlExpression = "select TOP (@Count) Id, Name, PostalCode, City, Address, Phone, Description, Url, ImageUrl, LocalImageFile from Doctors where Collected = 0";
+
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                connection.Open();
+                SqlCommand command = new SqlCommand(sqlExpression, connection);
+                command.Parameters.Add(new SqlParameter("@Count", count));
+                SqlDataReader reader = command.ExecuteReader();
+                if (reader.HasRows) // если есть данные
+                {
+                    while (reader.Read()) // построчно считываем данные
+                    {
+                        result.Add(FromReader(reader));
+                    }
+                }
+                reader.Close();
+            }
             return result;
         }
 
@@ -214,14 +242,20 @@ namespace Doctors.Models
             command.Parameters.Add(new SqlParameter("@Description",
                 doctor.Description != null ?
                 (object)doctor.Description : DBNull.Value));
+            command.Parameters.Add(new SqlParameter("@ImageUrl",
+                doctor.ImageUrl != null ?
+                (object)doctor.ImageUrl : DBNull.Value));
+            command.Parameters.Add(new SqlParameter("@LocalImageFile",
+                doctor.LocalImageFile != null ?
+                (object)doctor.LocalImageFile : DBNull.Value));
             command.Parameters.Add(new SqlParameter("@Collected",
                 doctor.Phone != null));
         }
 
         private void Insert(Doctor doctor)
         {
-            string sqlExpression = "insert into Doctors (Uid, Name, PostalCode, City, Address, Phone, Description, Url, Collected)" +
-                " VALUES (@Uid, @Name, @PostalCode, @City, @Address, @Phone, @Description, @Url, @Collected); SELECT SCOPE_IDENTITY()";
+            string sqlExpression = "insert into Doctors (Uid, Name, PostalCode, City, Address, Phone, Description, Url, Collected, ImageUrl, LocalImageFile)" +
+                " VALUES (@Uid, @Name, @PostalCode, @City, @Address, @Phone, @Description, @Url, @Collected, @ImageUrl, @LocalImageFile); SELECT SCOPE_IDENTITY()";
 
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
@@ -238,7 +272,9 @@ namespace Doctors.Models
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
                 connection.Open();
-                string sqlExpression = "update Doctors SET Uid=@Uid, Name=@Name, PostalCode=@PostalCode, City=@City, Address=@Address, Phone=@Phone, Description=@Description, Url=@Url, Collected=@Collected WHERE Id=@Id";
+                string sqlExpression = "update Doctors SET Uid=@Uid, Name=@Name, PostalCode=@PostalCode, City=@City, Address=@Address, Phone=@Phone, Description=@Description, Url=@Url, Collected=@Collected, " +
+                    "ImageUrl=@ImageUrl, LocalImageFile=@LocalImageFile  WHERE Id=@Id";
+
                 SqlCommand command = new SqlCommand(sqlExpression, connection);
                 BindParams(command, doctor);
                 command.Parameters.Add(new SqlParameter("@Id", doctor.Id));
@@ -312,7 +348,7 @@ namespace Doctors.Models
                 Service temp;
                 if (reader.HasRows) // если есть данные
                 {
-                    
+
                     while (reader.Read()) // построчно считываем данные
                     {
                         temp = new Service();

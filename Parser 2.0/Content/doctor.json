@@ -1,0 +1,66 @@
+﻿{
+  "@context": "http://schema.org/",
+  "@type": "Physician",
+  "name": "Fabian Bornkessel",
+  "description": "Liebe Patientin, lieber Patient,\n\nüber Ihr Interesse freuen wir uns und möchten Ihnen gern unser Praxisangebot vorstellen.\n\nWir bieten Ihnen ein breites Spektrum der Allgemeinmedizin mit naturheilkundlich/integrativem und osteopathischem Schwerpunkt. Neben der Diagnostik und Behandlung von Erkrankungen liegt uns auch die präventive Medizin am Herzen, also die vorbeugende  Gesunderhaltung. Hier hat  die Lebensstilmedizin/-Beratung (Bewegung, Ernährung, Entspannung/Stressbewältigung) eine wichtige Bedeutung.",
+  "medicalSpecialty": "Weiterbildung (Arzt in Weiterbildung)",
+  "legalName": null,
+  "url": "/arzt-in-weiterbildung/essen/dritter-arzt",
+  "image": "//res.cloudinary.com/doctolib/image/upload/q_auto:eco,f_auto/kjrtvfkpd9p7m6hpktkv.jpg",
+  "address": {
+    "@type": "PostalAddress",
+    "name": "Praxis Maren Göttsch",
+    "streetAddress": "Rüttenscheider Str. 46",
+    "postalCode": "45130",
+    "addressLocality": "Essen"
+  },
+  "paymentAccepted": "",
+  "availableService": [
+    {
+      "@type": "MedicalProcedure",
+      "name": "Halsschmerzen"
+    },
+    {
+      "@type": "MedicalProcedure",
+      "name": "Check-up-35"
+    },
+    {
+      "@type": "MedicalProcedure",
+      "name": "Akupunktur"
+    },
+    {
+      "@type": "MedicalProcedure",
+      "name": "Grippe"
+    },
+    {
+      "@type": "MedicalProcedure",
+      "name": "Fieber"
+    },
+    {
+      "@type": "MedicalProcedure",
+      "name": "Neuraltherapie"
+    },
+    {
+      "@type": "MedicalProcedure",
+      "name": "Integrative Medizin"
+    },
+    {
+      "@type": "MedicalProcedure",
+      "name": "Allgemeinmedizin (Hausarzt)"
+    },
+    {
+      "@type": "MedicalProcedure",
+      "name": "Infusionstherapie"
+    },
+    {
+      "@type": "MedicalProcedure",
+      "name": "Naturheilverfahren"
+    },
+    {
+      "@type": "MedicalProcedure",
+      "name": "Chirotherapie"
+    }
+  ],
+  "telephone": null,
+  "openingHours": [ "Mo 08:30-11:30, 15:30-18:00", "Tu 08:30-11:30", "We 08:30-11:30", "Th 10:00-13:00, 15:30-19:00", "Fr 08:30-11:30" ]
+}

@@ -14,8 +14,6 @@ namespace DoctorsDashboard.ViewModels
 
         public string Name { get; set; }
 
-
-
         public DoctorViewModel(Doctor doctor)
         {
             _doctor = doctor;

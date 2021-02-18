@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 using System.Text;
+using System.Threading;
 
 namespace Doctors.Parsers
 {
@@ -15,7 +16,7 @@ namespace Doctors.Parsers
         {
             _dataBase = database;
 
-            
+
         }
         static HtmlDocument getHTML(string URL)
         {
@@ -38,21 +39,31 @@ namespace Doctors.Parsers
             var siteDoctor = parser.GetDoctor();
 
             doctor.Phone = siteDoctor.Phone;
+            doctor.ImageUrl = siteDoctor.ImageUrl;
             doctor.Description = siteDoctor.Description;
             doctor.Services = siteDoctor.Services;
 
             _dataBase.Save(doctor);
         }
 
-        public bool Execute()
+        public bool Execute(bool all = false)
         {
-            var doctors = _dataBase.getNotCollectedDoctors();
+            List<Doctor> doctors;
+            if (all)
+            {
+                doctors = _dataBase.GetAllDoctorsWithoutImage();
+            }
+            else
+            {
+                doctors = _dataBase.getNotCollectedDoctors();
+            }
 
             if (doctors.Count == 0) return false;
 
             foreach (var item in doctors)
             {
                 Parse(item);
+                Thread.Sleep(10000);
             }
             return true;
         }

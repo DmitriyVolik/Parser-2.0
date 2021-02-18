@@ -6,6 +6,8 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Windows;
 using Doctors.Models;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
 
 namespace DoctorsDashboard.ViewModels
 {
@@ -48,8 +50,37 @@ namespace DoctorsDashboard.ViewModels
                 OnPropertyChanged("CurrentDoctor");
                 OnPropertyChanged("CurrentDoctorServices");
                 OnPropertyChanged("IsServicesVisible");
+                OnPropertyChanged("DoctorImage");
             }
         }
+
+        public ImageSource DoctorImage
+        {
+            get
+            {
+                string selectedFileName;
+                if (CurrentDoctor.LocalImageFile == null)
+                {
+                    selectedFileName = @"E:\\ДЗ Шаг\\С#\\WPF\\Parser 2.0\\Parser 2.0\\bin\\Debug\\netcoreapp3.1\\Pictures\\Default.png";
+                } else
+                {
+                    selectedFileName = @"E:\\ДЗ Шаг\\С#\\WPF\\Parser 2.0\\Parser 2.0\\bin\\Debug\\netcoreapp3.1\\Pictures" + "\\"+ CurrentDoctor.LocalImageFile;
+                }
+                
+                BitmapImage bitmap = new BitmapImage();
+                bitmap.BeginInit();
+                bitmap.UriSource = new Uri(selectedFileName);
+                bitmap.EndInit();
+
+                return bitmap;
+
+                //return System.Windows.Interop.Imaging.CreateBitmapSourceFromHBitmap(bitmap, IntPtr.Zero, Int32Rect.Empty,
+                //    System.Windows.Media.Imaging.BitmapSizeOptions.FromEmptyOptions());
+            }
+        }
+
+
+
 
         public ObservableCollection<Service> CurrentDoctorServices
         {

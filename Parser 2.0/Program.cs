@@ -104,6 +104,26 @@ namespace Doctors
         }
 
 
+        static async void LoadDoctorsImagesUrlAsync(DataBase database)
+        {
+            var director = new DoctorPageDirector(database);
+            bool hasNext;
+            do
+            {
+                hasNext = await Task<bool>.Run(() => director.Execute(true));
+            } while (hasNext);
+        }
+
+        static async void DownloadDoctorsImagesAsync(DataBase database)
+        {
+            var director = new DoctorImageDownloadDirector(database);
+            bool hasNext;
+            do
+            {
+                hasNext = await Task<bool>.Run(() => director.Execute());
+            } while (hasNext);
+            
+        }
 
         static async void LoadDoctorsAsync(DataBase database)
         {
@@ -112,7 +132,6 @@ namespace Doctors
             do
             {
                 hasNext = await Task<bool>.Run(() => director.Execute());
-                Thread.Sleep(4000);
             } while (hasNext);
         }
 
@@ -120,19 +139,28 @@ namespace Doctors
         {
             var database = new DataBase(@"Data Source=.\SQLEXPRESS;Initial Catalog=Doctors;Integrated Security=True");
             //LoadListAsync(database);
-            
-            var list = database.FindAllServices();
 
-            foreach (var item in list)
+            DownloadDoctorsImagesAsync(database);
+            LoadDoctorsImagesUrlAsync(database);
+
+            while (true)
             {
-                Console.WriteLine(item.Title);
-                //var ss = database.Find(item);
-                //foreach (var s in ss)
-                //{
-                //    Console.WriteLine(s.Title);
-                //}
-                //break;
+                Console.WriteLine(".");
+                Thread.Sleep(5000);
             }
+
+            //var list = database.FindAllServices();
+
+            //foreach (var item in list)
+            //{
+            //    Console.WriteLine(item.Title);
+            //    //var ss = database.Find(item);
+            //    //foreach (var s in ss)
+            //    //{
+            //    //    Console.WriteLine(s.Title);
+            //    //}
+            //    //break;
+            //}
 
             //LoadDoctorsAsync(database);
 

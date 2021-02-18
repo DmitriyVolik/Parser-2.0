@@ -31,6 +31,7 @@ namespace Doctors.Parsers
             result.PostalCode = json.RootElement.GetProperty("address").GetProperty("postalCode").ToString();
             result.City = json.RootElement.GetProperty("address").GetProperty("addressLocality").ToString();
             result.Address = json.RootElement.GetProperty("address").GetProperty("streetAddress").ToString();
+            result.ImageUrl = json.RootElement.GetProperty("image").ToString();
 
             var array = json.RootElement.GetProperty("availableService").EnumerateArray();
             while (array.MoveNext())

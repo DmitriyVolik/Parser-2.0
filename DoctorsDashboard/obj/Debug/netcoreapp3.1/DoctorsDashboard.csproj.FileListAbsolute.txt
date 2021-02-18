@@ -32,3 +32,8 @@ E:\ДЗ Шаг\С#\WPF\Parser 2.0\DoctorsDashboard\obj\Debug\netcoreapp3.1\Docto
 E:\ДЗ Шаг\С#\WPF\Parser 2.0\DoctorsDashboard\obj\Debug\netcoreapp3.1\DoctorsDashboard.dll
 E:\ДЗ Шаг\С#\WPF\Parser 2.0\DoctorsDashboard\obj\Debug\netcoreapp3.1\DoctorsDashboard.pdb
 E:\ДЗ Шаг\С#\WPF\Parser 2.0\DoctorsDashboard\obj\Debug\netcoreapp3.1\DoctorsDashboard.genruntimeconfig.cache
+E:\ДЗ Шаг\С#\WPF\Parser 2.0\DoctorsDashboard\bin\Debug\netcoreapp3.1\Microsoft.Win32.SystemEvents.dll
+E:\ДЗ Шаг\С#\WPF\Parser 2.0\DoctorsDashboard\bin\Debug\netcoreapp3.1\System.Drawing.Common.dll
+E:\ДЗ Шаг\С#\WPF\Parser 2.0\DoctorsDashboard\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp3.0\Microsoft.Win32.SystemEvents.dll
+E:\ДЗ Шаг\С#\WPF\Parser 2.0\DoctorsDashboard\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp3.0\System.Drawing.Common.dll
+E:\ДЗ Шаг\С#\WPF\Parser 2.0\DoctorsDashboard\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp3.0\System.Drawing.Common.dll

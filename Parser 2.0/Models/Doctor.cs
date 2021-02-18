@@ -21,7 +21,11 @@ namespace Doctors.Models
         public string Description { get; set; }
 
         public string Url { get; set; }
-                
+
+        public string ImageUrl { get; set; }
+
+        public string LocalImageFile { get; set; }
+
         public List<Service> Services = new List<Service>();
     }
 }
