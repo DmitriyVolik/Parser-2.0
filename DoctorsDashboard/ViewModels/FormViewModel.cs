@@ -8,6 +8,8 @@ using System.Windows;
 using Doctors.Models;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Diagnostics;
+using System.Management;
 
 namespace DoctorsDashboard.ViewModels
 {
@@ -20,6 +22,10 @@ namespace DoctorsDashboard.ViewModels
         private Doctor _currentDoctor;
 
         private DataBase dataBase;
+
+        private Process process;
+
+        public string StartStopTextButton { get => process == null ? "Запуск" : "Стоп"; }
 
         private Service _currentService;
 
@@ -108,6 +114,39 @@ namespace DoctorsDashboard.ViewModels
             }
         }
 
+        public RelayCommand StartStopButton
+        {
+            get
+            {
+                return new RelayCommand(
+                        obj =>
+                        {
+
+
+                            if (process == null)
+                            {
+                                process = new Process();
+                                process.StartInfo.FileName = @"E:\ДЗ Шаг\С#\WPF\Parser 2.0\Parser 2.0\bin\Debug\netcoreapp3.1\Parser 2.0.exe";
+                                process.StartInfo.CreateNoWindow = true;
+                                process.Start(); 
+                            }
+                            else
+                            {
+                                foreach (var item in GetChildProcesses(process))
+                                {
+                                    item.Kill();
+                                }
+                                process.Kill();
+
+                                process = null;
+                            }
+
+                            OnPropertyChanged("StartStopTextButton");
+                        }
+                    );
+            }
+        }
+
         public FormViewModel()
         {
             dataBase = new DataBase(@"Data Source=.\SQLEXPRESS;Initial Catalog=Doctors;Integrated Security=True");
@@ -124,6 +163,17 @@ namespace DoctorsDashboard.ViewModels
         {
             if (PropertyChanged != null)
                 PropertyChanged(this, new PropertyChangedEventArgs(prop));
+        }
+
+        public static IEnumerable<Process> GetChildProcesses(Process process)
+        {
+            List<Process> children = new List<Process>();
+            ManagementObjectSearcher mos = new ManagementObjectSearcher(String.Format("Select * From Win32_Process Where ParentProcessID={0}", process.Id));
+            foreach (ManagementObject mo in mos.Get())
+            {
+                children.Add(Process.GetProcessById(Convert.ToInt32(mo["ProcessID"])));
+            }
+            return children;
         }
     }
 }

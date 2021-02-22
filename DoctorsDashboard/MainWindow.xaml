@@ -46,6 +46,8 @@
             </ComboBox>
             <Button
                 Command="{Binding ResetButton}" Content="Сброс" Width="50" Height="25"/>
+            <Button
+                Command="{Binding StartStopButton}" Content="{Binding StartStopTextButton}" Width="50" Height="26"/>
 
         </DockPanel>
         <StackPanel Margin="10 10 10 10" Grid.Column="1" Grid.Row="0">

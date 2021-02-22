@@ -22,6 +22,7 @@ namespace Doctors.Parsers
         {
             WebClient wc = new WebClient();
             //wc.Proxy = new WebProxy(host, port);
+            Console.WriteLine("URL:" + URL);
             var page = wc.DownloadString(URL);
 
             HtmlAgilityPack.HtmlDocument doc = new HtmlAgilityPack.HtmlDocument();
@@ -32,18 +33,32 @@ namespace Doctors.Parsers
 
         public void Parse(Doctor doctor)
         {
+
             Console.WriteLine("Get Doctor: " + doctor.Id);
 
-            var html = getHTML("https://www.doctolib.de" + doctor.Url);
-            var parser = new DoctorPageParser(html.DocumentNode);
-            var siteDoctor = parser.GetDoctor();
+            try
+            {
+                var html = getHTML("https://www.doctolib.de" + doctor.Url);
+                var parser = new DoctorPageParser(html.DocumentNode);
+                var siteDoctor = parser.GetDoctor();
 
-            doctor.Phone = siteDoctor.Phone;
-            doctor.ImageUrl = siteDoctor.ImageUrl;
-            doctor.Description = siteDoctor.Description;
-            doctor.Services = siteDoctor.Services;
 
-            _dataBase.Save(doctor);
+
+                doctor.Phone = siteDoctor.Phone;
+                doctor.ImageUrl = siteDoctor.ImageUrl;
+                doctor.Description = siteDoctor.Description;
+                doctor.Services = siteDoctor.Services;
+
+                _dataBase.Save(doctor);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Get Doctor exception: " + 
+                    e.Message);
+                _dataBase.SetNotExist(doctor);
+            }
+
+           
         }
 
         public bool Execute(bool all = false)

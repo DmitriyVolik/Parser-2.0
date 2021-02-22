@@ -108,7 +108,7 @@ namespace Doctors.Models
 
             string sqlExpression;
 
-            sqlExpression = "select Id, Name, PostalCode, City, Address, Phone, Description, Url, ImageUrl, LocalImageFile from Doctors WHERE ImageUrl IS NULL";
+            sqlExpression = "select Id, Name, PostalCode, City, Address, Phone, Description, Url, ImageUrl, LocalImageFile from Doctors WHERE ImageUrl IS NULL AND [Exists]=1";
 
 
             using (SqlConnection connection = new SqlConnection(_connectionString))
@@ -174,7 +174,7 @@ namespace Doctors.Models
 
             string sqlExpression;
 
-            sqlExpression = "select Id, Name, PostalCode, City, Address, Phone, Description, Url, ImageUrl, LocalImageFile from Doctors WHERE LocalImageFile IS NULL AND ImageUrl IS NOT NULL";
+            sqlExpression = "select Id, Name, PostalCode, City, Address, Phone, Description, Url, ImageUrl, LocalImageFile from Doctors WHERE LocalImageFile IS NULL AND ImageUrl IS NOT NULL AND [Exists] = 1";
 
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
@@ -200,7 +200,7 @@ namespace Doctors.Models
 
             string sqlExpression;
 
-            sqlExpression = "select TOP (@Count) Id, Name, PostalCode, City, Address, Phone, Description, Url, ImageUrl, LocalImageFile from Doctors where Collected = 0";
+            sqlExpression = "select TOP (@Count) Id, Name, PostalCode, City, Address, Phone, Description, Url, ImageUrl, LocalImageFile from Doctors where Collected = 0 AND [Exists] = 1";
 
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
@@ -431,20 +431,24 @@ namespace Doctors.Models
             }
         }
 
-        //public void Save(Service service)
-        //{
+        public void SetNotExist(Doctor doctor)
+        {
 
-        //}
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                connection.Open();
 
-        //public List<Doctor> Find()
-        //{
-        //    return new List<Doctor>();
-        //}
+                string sqlExpression = "update Doctors set [Exists] = 0 WHERE Id=@DoctorId";
 
-        //public bool Contain(Doctor doctor)
-        //{
-        //    return false;
-        //}
+                SqlCommand command = new SqlCommand(sqlExpression, connection);
+
+                command.Parameters.Add(new SqlParameter("@DoctorId", doctor.Id));
+
+                command.ExecuteNonQuery();
+            }
+
+          
+        }
 
     }
 }
